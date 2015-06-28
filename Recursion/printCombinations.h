@@ -22,7 +22,7 @@ void combinationsUtil(T set[], int start, int end, int r, T data[], int index)
 		// because you couldn't fill all the remaining spots to fill in "data" with 
 		// looking at fewer spots in "set". In summary:
 		// Continue as long as the number of positions in "set" to choose from
-		// is as great as the number of positions in "data" to assigned to.
+		// is as great as the number of positions in "data" to assigne to.
 		for (int i = start; (i <= end) && (end + 1 - i >= r - index); i++) {
 			data[index] = set[i];
 			combinationsUtil(set, i + 1, end, r, data, index + 1);
