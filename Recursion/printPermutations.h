@@ -58,7 +58,8 @@ void EvensSpeedupUtil(char str[], int l, int r, int signs[])
 		swap(signs[largestIndex], signs[newIndex]);
 		// If swap causes the "largest" element to move into start or end of permutation (l or r)
 		// or if the next element in direction of swap is larger than the "largest" element, 
-		// set "largest" element's sign to zero
+		// set "largest" element's sign to zero. Note that "direction" corresponds to "signs",
+		// so -1 indicates direction to the left, (+)1 indicates direction to the right.
 		if (newIndex == l || newIndex == r || (int(str[newIndex + signs[newIndex]]) > int(str[newIndex]))) {
 			signs[newIndex] = 0;
 			marked--;
