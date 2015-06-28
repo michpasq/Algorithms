@@ -7,10 +7,10 @@ using namespace std;
 // Still work though the permutations based method for understanding
 
 
-// This utility function implements printPowerSet() by print all r-combinations
+// This utility function implements printPowerSet() by printing all r-combinations
 // for r in range [0, size). It looks very similar to the combinationsUtil()
 // function but with the addition of "while (subset++ <= end)".
-// Thus, this function is O(n^2 * n!). (combinationsUtil() is O(n * n!) = O(2^n)).
+// This is still O(n * 2^n).
 template <class T>
 void powerSetUtil_byCombinations(T set[], int subsetSize, int start, int end, T data[], int index)
 {
