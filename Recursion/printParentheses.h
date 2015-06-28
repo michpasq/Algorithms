@@ -22,7 +22,7 @@ void parenthesesUtil(int n, char data[], int index, int open, int closed)
 
 }
 
-// Function that print all closed sequences of n pairs of parentheses
+// Function that prints all closed sequences of n pairs of parentheses
 void printParentheses(int n)
 {
 	char* data = new char[2 * n]();
