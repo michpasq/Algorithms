@@ -9,15 +9,15 @@ using namespace std;
 // To represent board, I could have used a 1d array where the value at each index represent the row.
 // For example queens[2] = 3 would mean the queen in column 2 is in row 3. This would work because
 // queens should not be in the same column anyway. With this representation, no two values of the 
-// 1-d array can be the same (that would mean queens in the same column!).
+// 1-d array can be the same (otherwise queens could be in the same column!).
 //
 // Interesting fact: since each queen is at a [row][col] (whether you represent it with 
-// 1d or 2d array), to check for diagonal collisions, all queens' row-col should be different
+// 1d or 2d array), to check for diagonal collisions, all queens' row-col (subtraction) should be different
 // and all queens' col-row should be different. If any are same, there is a diagonal collision.
 //
 // Another interesting fact: suppose two queens at [row1][col1] and [row2][col2].
 // tmp = col1 - col2. If tmp == 0 || tmp == row1 - row2 || tmp == row2 - row1, there is a collision
-// in row or a diagonal. In other words, if |row1 - row2| == |col1 - col2| there is diagonal collision
+// in column or a diagonal. In other words, if |row1 - row2| == |col1 - col2| there is diagonal collision
 // if col1 - col2 == 0 then there is column collision.
 //
 // The above collision testing strategies rely on you keeping track of where queens are placed
@@ -48,7 +48,7 @@ void printBoard(bool** board, int N)
 
 // Note that this function does NOT check that a queen at [row][col]
 // is safe in a) its row, b) its column, and c) both diagonals.
-// Since nQueens_Util() places one queen per column (recursivly,
+// Since nQueens_Util() places one queen per column (recursively,
 // so eventually each row in a column will be tried, but one at a time),
 // this function does not check the column "col". It checks the row
 // to the left of [row][col] and ascending and descending diagonals
@@ -124,15 +124,16 @@ int nQueens(int N)
 		memset(board[i], 0, N*sizeof(bool));
 	}
 
-	// These lines were for when the algorithmS returned true
-	// on successful recursive call.
+	// These lines were for when the algorithm returned true
+	// on successful recursive call, e.g. it was when
+	// the algorithm terminated after finding first solution.
 	//if (nQueens_Util(board, N, 0, numSolutions) == true)
 	//	printBoard(board, N);
 	//else
 	//	cout << "No Solution\n";
 
-	// Now the return is commented out, giving the algorithm
-	// the chance to consider more solutions
+	// Now the return in nQueens_Util() is commented out, giving the algorithm
+	// the chance to consider more (well, all) solutions
 	nQueens_Util(board, N, 0, numSolutions);
 	printf("\nThere are %i solutions for board with size %i\n", numSolutions, N);
 
