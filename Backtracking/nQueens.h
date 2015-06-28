@@ -141,7 +141,7 @@ int nQueens(int N)
 		delete[] board[i];
 	}
 
-	return 0;
+	return numSolutions;
 }
 
 // Driver program:
