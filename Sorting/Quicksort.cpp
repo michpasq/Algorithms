@@ -37,6 +37,12 @@ int splitArray(int array[], int pivot, int l, int r)
 	return startIter;
 }
 
+void Quicksort(int array[], int l, int r) 
+{
+
+	return;
+}
+
 int main()
 {
 	int array1[] = {4,5,2,7,1,10,12,22,0,1,4,6};
