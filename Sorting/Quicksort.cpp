@@ -31,7 +31,7 @@ int splitArray(int array[], int pivot, int l, int r)
 		endIter = j;
 
 		// Found elements to swap
-		std::swap(array[i], array[j]);
+		std::swap(array[startIter], array[endIter]);
 	}
 
 	return startIter;
