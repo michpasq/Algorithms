@@ -12,35 +12,43 @@ void printArray(int array[], int size)
 // "Splits" the array in range [l,r] around "pivot".
 // All elements between "l" and "r" less than "pivot"
 // end to left of pivot,  likewise elements greater to the right.
-int splitArray(int array[], int pivot, int l, int r)
+int splitArray(int array[], int left, int right) 
 {
+    int mid = left + (right - left) / 2;
+    int pivot = array[mid];
+    // move the mid point value to the front.
+    std::swap(array[mid], array[left]);
+    int i = left + 1;
+    int j = right;
+    while (i <= j) {
+        while(i <= j && array[i] <= pivot) {
+            i++;
+        }
 
-	int startIter = l;
-	int endIter = r;
+        while(i <= j && array[j] > pivot) {
+            j--;
+        }
 
-	while (startIter < endIter) {
-
-		// Find element starting from left side greater than pivot
-		int i;
-		for (i = startIter; array[i] < pivot; i++);
-		startIter = i;
-
-		// Fine element starting from right side less than pivot
-		int j;
-		for (j = endIter; array[j] > pivot; j--);
-		endIter = j;
-
-		// Found elements to swap
-		std::swap(array[startIter], array[endIter]);
-	}
-
-	return startIter;
+        if (i < j) {
+            std::swap(array[i], array[j]);
+        }
+    }
+    int pivotIndex = i - 1;
+    std::swap(array[pivotIndex], array[left]);
+    return pivotIndex;
 }
 
-void Quicksort(int array[], int l, int r) 
-{
+void Quicksort(int array[], int left, int right){
 
-	return;
+    int part = splitArray(array, left, right);
+    //std::cout << "QSC:" << left << "," << right << " part=" << part << "\n";
+
+    if (left < part - 1) {
+        Quicksort(array, left, part - 1);
+    }
+    if (part + 1 < right) {
+        Quicksort(array, part + 1, right);
+    }
 }
 
 int main()
@@ -48,10 +56,16 @@ int main()
 	int array1[] = {4,5,2,7,1,10,12,22,0,1,4,6};
 
 	printArray(array1, 12);
+	Quicksort(array1, 0, 11);
+	printArray(array1, 12);
+
+	return 0;
 	printf("pivot around value 5\n");
-	int pivot = splitArray(array1, 5, 0, 11);
+	int pivot = splitArray(array1, 0, 11);
 	printf("pivot is at index %i\n", pivot);
 	printArray(array1, 12);
+
+
 
 	return 0;
 }
