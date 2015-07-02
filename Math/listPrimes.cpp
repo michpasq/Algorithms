@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 void crossOff(std::vector<bool>& flags, int prime)
 {
@@ -37,9 +38,10 @@ std::vector<bool> sieveOfEratosthenes(int max)
 	return flags;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-	std::vector<bool> flaggedPrimes = sieveOfEratosthenes(10);
+	int max = atoi(argv[1]);
+	std::vector<bool> flaggedPrimes = sieveOfEratosthenes(max);
 	for (int i = 0; i < flaggedPrimes.size(); i++) {
 		if (flaggedPrimes[i])
 			std::cout << i << '\n';
