@@ -2,26 +2,21 @@
 
 int* get_products_of_all_ints_except_at_index(int array[], int size)
 {
-    int* beforeProducts = new int[size];
-    int afterProducts[size];
+    int* otherProducts = new int[size];
 
     int product = 1;
     for (int i = 0; i < size; i++) {
-        beforeProducts[i] = product;
+        otherProducts[i] = product;
         product *= array[i];
     }
 
     product = 1;
     for (int i = size - 1; i >= 0; i--) {
-     	afterProducts[i] = product;
+     	otherProducts[i] *= product;  // We use multiplication because the before product is already here
         product *= array[i];
     }
 
-    for (int i = 0; i < size; i++ ) {
-     	  beforeProducts[i] *= afterProducts[i]; 
-    }
-    
-    return beforeProducts;
+    return otherProducts;
 }
 
 // Test Driver program
