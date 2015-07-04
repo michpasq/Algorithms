@@ -21,10 +21,10 @@ int splitArray(int array[], int left, int right)
     int i = left + 1;
     int j = right;
     while (i <= j) {
-        while(i <= j && array[i] <= pivot) 
+        while (i <= j && array[i] <= pivot) 
             i++;
             
-        while(i <= j && array[j] > pivot) 
+        while (i <= j && array[j] > pivot) 
             j--;
             
         if (i < j) 
