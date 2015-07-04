@@ -34,7 +34,7 @@ void merge(int array[], int left, int mid, int right)
  		if (tempLeft[i] <= tempRight[j]) 
  			array[k] = tempLeft[i++];
  		else 
- 			array[k] = tempRight[j];
+ 			array[k] = tempRight[j++];
  		k++;
  	}
 
