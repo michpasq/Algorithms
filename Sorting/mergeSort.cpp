@@ -9,7 +9,7 @@
 // Just be careful with indices for left and right temp arrays
 void merge(int array[], int left, int mid, int right) 
 {
-	// Copy element [left, right] into temporary arrays
+	// Copy elements [left, right] into temporary arrays
 
 	int leftSize = mid - left + 1;
 	int rightSize = right - mid;
