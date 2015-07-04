@@ -21,17 +21,14 @@ int splitArray(int array[], int left, int right)
     int i = left + 1;
     int j = right;
     while (i <= j) {
-        while(i <= j && array[i] <= pivot) {
+        while(i <= j && array[i] <= pivot) 
             i++;
-        }
-
-        while(i <= j && array[j] > pivot) {
+            
+        while(i <= j && array[j] > pivot) 
             j--;
-        }
-
-        if (i < j) {
+            
+        if (i < j) 
             std::swap(array[i], array[j]);
-        }
     }
     int pivotIndex = i - 1;
     std::swap(array[pivotIndex], array[left]);
@@ -43,12 +40,11 @@ void Quicksort(int array[], int left, int right){
     int part = splitArray(array, left, right);
     //std::cout << "QSC:" << left << "," << right << " part=" << part << "\n";
 
-    if (left < part - 1) {
+    if (left < part - 1) 
         Quicksort(array, left, part - 1);
-    }
-    if (part + 1 < right) {
+   
+    if (part + 1 < right) 
         Quicksort(array, part + 1, right);
-    }
 }
 
 int main()
