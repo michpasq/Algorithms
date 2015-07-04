@@ -3,7 +3,7 @@
 // Notes about algorithm:
 // merge() works "bottom-up" (I think). It assumes array[left,mid]
 // and array[mid+1,right] are both sorted, which is guaranteed when you 
-// begin merging at the "bottom" or recursion starting with the base case,
+// begin merging at the "bottom" of recursion starting with the base case,
 // i.e. arrays of size one.
 
 // Just be careful with indices for left and right temp arrays
