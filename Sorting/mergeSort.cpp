@@ -31,25 +31,19 @@ void merge(int array[], int left, int mid, int right)
  	j = 0;
  	k = left;
  	while (i < leftSize && j < rightSize) {
- 		if (tempLeft[i] <= tempRight[j]) {
- 			array[k] = tempLeft[i];
- 			i++;
- 		}
- 		else {
+ 		if (tempLeft[i] <= tempRight[j]) 
+ 			array[k] = tempLeft[i++];
+ 		else 
  			array[k] = tempRight[j];
- 			j++;
- 		}
  		k++;
  	}
 
  	// Appened remaining elements, if there are any
- 	while (i < leftSize) {
+ 	while (i < leftSize) 
  		array[k++] = tempLeft[i++];
- 	}
 
- 	while (j < rightSize) {
+ 	while (j < rightSize) 
  		array[k++] = tempRight[j++];
- 	}
 }
 
 void mergeSort(int array[], int left, int right)
