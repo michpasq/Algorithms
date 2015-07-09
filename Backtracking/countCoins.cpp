@@ -1,6 +1,11 @@
 #include <iostream>
 #include <stdio.h>
 
+// NOTES:
+// Moral - in "combinations" type situations (i.e. you don't want to count each permutation)
+// with recursion, loop from a non-decreasing "start" variable that you increment 
+// via both a for loop and a recursive call. 
+
 // Notes "start" variable controls where loop of denominations begins-- important to not 
 // count multiple permutations.
 bool countCoins_Util(const int denominations[], const int size, const int amount, int& count, int coins[], int sum, int start) {
