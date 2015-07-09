@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 
-bool countCoins_Util(const int denominations[], const int size, const int amount, int& count, int coins[], int sum) {
+bool countCoins_Util(const int denominations[], const int size, const int amount, int& count, int coins[], int sum, int start) {
 	if (sum > amount) {
 		return false;
 	}
@@ -17,12 +17,12 @@ bool countCoins_Util(const int denominations[], const int size, const int amount
 	}
 	else {
 		std::cout << "sum is " << sum << '\n';
-		for (int i = 0; i < size; i++) {
+		for (int i = start; i < size; i++) {
 			if (sum + denominations[i] <= amount) {
 				coins[i] += 1;
 				sum += denominations[i];
 				printf("recursing with sum = %i and %ith coin set\n", sum, i);
-				if (countCoins_Util(denominations, size, amount, count, coins, sum)) {
+				if (countCoins_Util(denominations, size, amount, count, coins, sum, i)) {
 					printf("recursion on sum %i plus %ith coin returned true\n", sum, i);
 				}
 				coins[i] -= 1;
@@ -44,7 +44,7 @@ int countCoins(const int denominations[], const int size, const int amount) {
 	}
 
 	int sum = 0;
-	countCoins_Util(denominations, size, amount, n, coins, sum);
+	countCoins_Util(denominations, size, amount, n, coins, sum, 0);
 	delete[] coins;
 	return n;
 }
