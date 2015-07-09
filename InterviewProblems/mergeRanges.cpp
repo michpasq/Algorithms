@@ -43,8 +43,9 @@ std::vector<timeTuple> mergeRanges(std::vector<timeTuple> ranges) {
 		}
 		
 	}
-
-	return std::vector<timeTuple>(ranges.begin(), prev + 1);
+	
+	// Careful! Don't be off-by-one with "end" iterator!
+	return std::vector<timeTuple>(ranges.begin(), prev + 1);	
 }
 
 
@@ -64,7 +65,7 @@ int main() {
 	ranges.emplace_back(2,6);
 	ranges.emplace_back(3,5);
 	ranges.emplace_back(7,9);
-	
+
 	std::vector<timeTuple> mergedRanges = mergeRanges(ranges);
 
 	for (auto& i : mergedRanges) {
