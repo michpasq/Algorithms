@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdio.h>
 
+// Notes "start" variable controls where loop of denominations begins-- important to not 
+// count multiple permutations.
 bool countCoins_Util(const int denominations[], const int size, const int amount, int& count, int coins[], int sum, int start) {
 	if (sum > amount) {
 		return false;
@@ -22,6 +24,10 @@ bool countCoins_Util(const int denominations[], const int size, const int amount
 				coins[i] += 1;
 				sum += denominations[i];
 				printf("recursing with sum = %i and %ith coin set\n", sum, i);
+				// Recurse at "start" = i (last argument) so that you don't consider
+				// any previous elements. For example, 1,1,2 and 1,2,1 both sum to 4,
+				// but we don't consider 1,2,1 because at 1,2... you won't consider 1
+				// again in the recursion!
 				if (countCoins_Util(denominations, size, amount, count, coins, sum, i)) {
 					printf("recursion on sum %i plus %ith coin returned true\n", sum, i);
 				}
