@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <string>
+#include <cstring>	//memset()
 
 using namespace std;
 
