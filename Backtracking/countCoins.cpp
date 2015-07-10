@@ -5,6 +5,11 @@
 // Moral - in "combinations" type situations (i.e. you don't want to count each permutation)
 // with recursion, loop from a non-decreasing "start" variable that you increment 
 // via both a for loop and a recursive call. 
+//
+// I could memoize solutions. With this implementation, I would need to hash
+// (sum,i) pairs where i means "ith coin" to true or false. Theres is significant
+// implementation for hashing stucts with unordered_map, so I'll save this for 
+// another day....
 
 // Notes "start" variable controls where loop of denominations begins-- important to not 
 // count multiple permutations.
