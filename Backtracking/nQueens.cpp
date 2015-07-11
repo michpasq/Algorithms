@@ -7,6 +7,9 @@ using namespace std;
 
 // NOTES ABOUT THE CODE:
 //
+// More efficient possible implementations at:
+// https://sites.google.com/site/nqueensolver/home/algorithms/2backtracking-algorithm
+//
 // To represent board, I could have used a 1d array where the value at each index represent the row.
 // For example queens[2] = 3 would mean the queen in column 2 is in row 3. This would work because
 // queens should not be in the same column anyway. With this representation, no two values of the 
