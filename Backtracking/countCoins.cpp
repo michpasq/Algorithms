@@ -2,6 +2,9 @@
 #include <stdio.h>
 
 // NOTES:
+
+// This is "top-down". Try more efficient "bottom-up" because it is more efficient/
+//
 // Moral - in "combinations" type situations (i.e. you don't want to count each permutation)
 // with recursion, loop from a non-decreasing "start" variable that you increment 
 // via both a for loop and a recursive call. 
