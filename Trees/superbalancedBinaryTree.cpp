@@ -16,7 +16,6 @@ bool isSuperbalanced(binaryTreeNode* root, int& min, int& max, int& currHeight, 
 	if (shortCiruit) {
 		std::cout << "Short-circuiting!\n";
 		return false;
-
 	}
 
 	std::cout << "Root is now " << root->val << ".\n";
@@ -105,18 +104,19 @@ int main() {
 /*			11
 /*		   /  \
 /*		  12   13
-/*		 / \    
-/*	   14   15  	
+/*		 / \     \
+/*	   14   15    16	
 /*		   /	
 /*		  17
-		  /
-		 18	
+/*		  /
+/*		 18	
 */		
 	binaryTreeNode eleven = binaryTreeNode(11);
 	binaryTreeNode twelve = binaryTreeNode(12);
 	binaryTreeNode thirteen = binaryTreeNode(13);
 	binaryTreeNode fourteen = binaryTreeNode(14);
 	binaryTreeNode fifteen = binaryTreeNode(15);
+	binaryTreeNode sixteen = binaryTreeNode(16);
 	binaryTreeNode seventeen = binaryTreeNode(17);
 	binaryTreeNode eighteen = binaryTreeNode(18);
 
@@ -126,6 +126,7 @@ int main() {
 	twelve.left = &fourteen;
 	eleven.left = &twelve;
 	eleven.right = &thirteen;
+	thirteen.right = &sixteen;
 	
 	std::cout << "\n";
 	superbalanced = isSuperbalanced(&eleven);

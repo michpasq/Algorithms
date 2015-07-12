@@ -18,11 +18,13 @@ void merge(int array[], int left, int mid, int right)
 	int tempRight[rightSize];
 
 	int i, j, k;
-	for (i = 0; i < leftSize; i++) 
+	for (i = 0; i < leftSize; i++) {
 		tempLeft[i] = array[left + i];
+	}
 
-	for (j = 0; j < rightSize; j++) 
+	for (j = 0; j < rightSize; j++) {
 		tempRight[j] = array[mid + j + 1];
+ 	}
 
  	// Merge temporary arrays back into "array"
  	i = 0;
@@ -32,7 +34,7 @@ void merge(int array[], int left, int mid, int right)
  		if (tempLeft[i] <= tempRight[j]) 
  			array[k] = tempLeft[i++];
  		else 
- 			array[k] = tempRight[j++];
+ 			array[k] = tempRight[j];
  		k++;
  	}
 
