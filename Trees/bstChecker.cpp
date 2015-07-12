@@ -24,6 +24,12 @@ bool isBST(treeNode* root) {
     	current = nodes.top();
         nodes.pop();
 
+        // Check that current node is with it's bounds
+        // Bounds are initially (-infinity, infinity)
+        // All other bounds are based on ancestors (modified through recursion)
+        // How bounds work:
+        //      Left child gets new upper bound
+        //      Right child gets new lower bound
         if (current->data < current->bounds.lower || current->data > current->bounds.upper) {
             std::cout << "Short circuit at " << current->data << ".\n";
             return false;
