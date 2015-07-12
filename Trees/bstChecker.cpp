@@ -23,34 +23,19 @@ bool isBST(treeNode* root) {
     while (!nodes.empty()) {
     	current = nodes.top();
         nodes.pop();
+
+        if (current->data < current->bounds.lower || current->data > current->bounds.upper) {
+            std::cout << "Short circuit at " << current->data << ".\n";
+            return false;
+        }
         
         if (current->left) {
-            if (current->left->data >= current->data) {
-                std::cout << "Short circuit at " << current->data << ".\t";
-                std::cout << "Left child is not less than current.\n";
-                return false;
-            }
-            if (current->left->data < current->bounds.lower) {
-                std::cout << "Short circuit at " << current->data << ".\t";
-                std::cout << "Left child is less than lower bound on branch.\n";
-                return false;
-            }
             current->left->bounds.lower = current->bounds.lower;
             current->left->bounds.upper = current->data;
             nodes.push(current->left);
         }
         
         if (current->right) {
-            if (current->right->data <= current->data) {
-                std::cout << "Short circuit at " << current->data << ".\t";
-                std::cout << "Right child is not greater than current.\n";
-                return false;
-            }
-            if (current->right->data > current->bounds.upper) {
-                std::cout << "Short circuit at " << current->data << ".\t";
-                std::cout << "Right child is greater than upper bound on branch.\n";
-                return false;
-            }
             current->right->bounds.lower = current->data;
             current->right->bounds.upper = current->bounds.upper;
             nodes.push(current->right);
