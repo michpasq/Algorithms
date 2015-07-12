@@ -109,8 +109,8 @@ int main() {
 /*	   14   15  	
 /*		   /	
 /*		  17
-		  /
-		 18	
+/*		  /
+/*		 18	
 */		
 	binaryTreeNode eleven = binaryTreeNode(11);
 	binaryTreeNode twelve = binaryTreeNode(12);
